@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'portfolio',
     'gallery',
     'voting',
+    'surveys',
 ]
 
 MIDDLEWARE = [

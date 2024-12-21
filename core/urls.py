@@ -29,6 +29,7 @@ urlpatterns = [
     path('portfolio/', include('portfolio.urls')),
     path('gallery/', include('gallery.urls')),
     path('voting/', include('voting.urls')),
+    path('surveys/', include('surveys.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'core.views.page_not_found_view'

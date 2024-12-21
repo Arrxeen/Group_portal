@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Добавить вопрос к опросу "{{ survey.title }}"</h1>
+    <form method="post" id="questionForm">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.text.label_tag }}
+            {{ form.text }}
+        </div>
+        
+        <div class="mb-3">
+            {{ form.question_type.label_tag }}
+            {{ form.question_type }}
+        </div>
+        
+        <div class="mb-3">
+            {{ form.required.label_tag }}
+            {{ form.required }}
+        </div>
+        
+        <div id="choices-container" style="display: none;">
+            <h3>Варианты ответов</h3>
+            <div id="choice-list">
+                <div class="mb-2">
+                    <input type="text" name="choices[]" class="form-control" placeholder="Вариант ответа">
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary mb-3" onclick="addChoice()">
+                Добавить вариант
+            </button>
+        </div>
+        
+        <div class="mt-3">
+            <button type="submit" name="add_another" class="btn btn-secondary">Сохранить и добавить ещё</button>
+            <button type="submit" class="btn btn-primary">Сохранить и завершить</button>
+        </div>
+    </form>
+</div>
+
+<script>
+function addChoice() {
+    const choiceList = document.getElementById('choice-list');
+    const newChoice = document.createElement('div');
+    newChoice.className = 'mb-2';
+    newChoice.innerHTML = `
+        <div class="input-group">
+            <input type="text" name="choices[]" class="form-control" placeholder="Вариант ответа">
+            <button type="button" class="btn btn-danger" onclick="this.parentElement.remove()">Удалить</button>
+        </div>
+    `;
+    choiceList.appendChild(newChoice);
+}
+
+document.getElementById('id_question_type').addEventListener('change', function() {
+    const choicesContainer = document.getElementById('choices-container');
+    if (this.value === 'single' || this.value === 'multiple') {
+        choicesContainer.style.display = 'block';
+    } else {
+        choicesContainer.style.display = 'none';
+    }
+});
+</script>
+{% endblock %} 
