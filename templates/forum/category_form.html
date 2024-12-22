@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    <title>Collaborify: Створення категорії</title>
+    <title>Collaborify: Создание категории</title>
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
         <form method="POST" enctype="multipart/form-data">
             {%csrf_token%}
             {{ form.as_p}}
-            <button type="submit">Submit</button>  
+            <button type="submit">Сохранить</button>  
         </form>
     </div>
 {% endblock %}

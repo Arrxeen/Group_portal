@@ -15,12 +15,7 @@ class Teacher(models.Model):
 
 
 class Student(models.Model):
-    user = models.ForeignKey(
-        CustomUser,
-        on_delete=models.CASCADE,
-        related_name='student_profile',
-        limit_choices_to={'role__name': 'Student'}
-    )
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='student_profile')
 
     def __str__(self):
         return f"Student: {self.user.first_name}"

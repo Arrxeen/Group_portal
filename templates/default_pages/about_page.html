@@ -7,19 +7,19 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
-    <h1>Познайомтесь з командою Collaborify!</h1>
+    <h1>Познакомьтесь с командой Collaborify!</h1>
 
 <div class="collapsible-container">
-<h2 class="collapsible">Хто ми?</h2>
+<h2 class="collapsible">Кто мы?</h2>
 <div class="content-text">
-<p>Ми - команда <i>Collaborify</i>, яка займається розробкою веб-додатків. Наш проект - це портфоліо команди, де ми будемо ділитися новинами та подіями.</p>
+<p>Мы - команда <i>Collaborify</i>, занимающаяся разработкой веб-приложений. Наш проект - это портфолио команды, где мы будем делиться новостями и событиями.</p>
 </div>
 </div>
 
 <div class="collapsible-container">
-<h2 class="collapsible">Чим ми займаємося?</h2>
+<h2 class="collapsible">Чем мы занимаемся?</h2>
 <div class="content-text">
-<p>Окрім новин та подій, наш веб-додаток включає безліч функцій, які ми розробили спеціально для ваших потреб.</p>
+<p>Кроме новостей и событий, наше веб-приложение включает множество функций, которые мы разработали специально для ваших нужд.</p>
 </div>
 </div>
 
@@ -28,26 +28,26 @@
 <div class="content-text">
     <div style="display: flex; justify-content: space-between; padding: 10px;">
         <ul style="width: 33.3%;">
-            <li>Яровенко Володимир</li>
-            <li>Каліон Олексій</li>
+            <li>Яровенко Владимир</li>
+            <li>Калион Алексей</li>
         </ul>
         <ul style="width: 33.3%;">
-            <li>Шевченко Станіслав</li>
+            <li>Шевченко Станислав</li>
             <li>Захаров Владислав</li>
-            <li>Панков Михайло</li>
+            <li>Панков Михаил</li>
         </ul>
         <ul style="width: 33.3%;">
             <li>Косташ Ростислав</li>
-            <li>Кучерявий Артем</li>
+            <li>Кучерявый Артем</li>
         </ul>
     </div>
 </div>
 </div>
 
 <div class="collapsible-container">
-<h2 class="collapsible">Хочете дізнатися більше?</h2>
+<h2 class="collapsible">Хотите узнать больше?</h2>
 <div class="content-text">
-<p>Слідкуйте за нашими новинами та подіями на цьому портфоліо!</p>
+<p>Следите за нашими новостями и событиями на этом портфолио!</p>
 </div>
 </div>
 
@@ -80,9 +80,9 @@
     .content-text.active {
         max-height: 500px;
     }
-  </style>
+</style>
   
-  <script>
+<script>
     document.querySelectorAll('.collapsible').forEach(item => {
         item.addEventListener('click', () => {
             const content = item.nextElementSibling;
@@ -94,5 +94,5 @@
             }
         });
     });
-  </script>
+</script>
 {% endblock %}

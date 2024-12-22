@@ -4,21 +4,22 @@
 
 {% block content %}
 <div class="container mt-4">
-    <link rel="stylesheet" href="{% static 'css/form.css' %}">
-    <h2>Голосования</h2>
-    <a href="{% url 'voting:create' %}" class="btn btn-primary mb-3">Создать голосование</a>
+    <link rel="stylesheet" href="{% static 'css/voting_list.css' %}">
+    <h1>Голосования</h1>
+    {% if request.user.is_staff %}
+    <a href="{% url 'voting:create' %}" class="btn btn-success">Создать голосование</a>
+    {% endif %}
     
     <div class="row">
         {% for voting in votings %}
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ voting.title }}</h5>
-                        <p class="card-text">{{ voting.description|truncatewords:30 }}</p>
-                        <a href="{% url 'voting:detail' voting.pk %}" class="btn btn-primary">
-                            Участвовать
-                        </a>
-                    </div>
+            <div class="col-md-12 mb-4">
+                <div class="voting-container">
+                    <h5>{{ voting.title }}</h5>
+                    <p>{{ voting.description|truncatewords:30 }}</p>
+                    <a href="{% url 'voting:detail' voting.pk %}" class="btn btn-success">Участвовать</a>
+                    {% if request.user.is_staff %}
+                        <a href="{% url 'voting:delete' voting.pk %}" class="btn btn-delete">Удалить</a>
+                    {% endif %}
                 </div>
             </div>
         {% empty %}
@@ -26,4 +27,4 @@
         {% endfor %}
     </div>
 </div>
-{% endblock %} 
+{% endblock %}

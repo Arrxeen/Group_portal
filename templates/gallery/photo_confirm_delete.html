@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block title %}
-  <title>Collaborify: Видалення поста</title>
+  <title>Collaborify: Удаление изображений</title>
 {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}">
 <div>
     <form  method="post">{% csrf_token %}
-        <p>Are you sure you want to delete ?</p>
-        <button type="submit">Confirm</button>
+        <p>Вы уверены, что хотите удалить?</p>
+        <button type="submit" class="btn-danger">Удалить</button>
     </form>
 </div>
 {% endblock %}

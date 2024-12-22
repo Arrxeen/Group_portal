@@ -2,29 +2,23 @@
 {% load static %}
 
 {% block title %}
-  <title>Collaborify: Новини</title>
+  <title>Collaborify: Посты</title>
 {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/forum.css' %}">
 <div>
-    <a class="forum_b" href="{% url 'post-creat' %}">Створити пост</a>
+    <h1>Категория: {{ category }}</h1>
+    <a class="forum_b" href="{% url 'post-creat' %}">Создать пост</a>
     <ul class="list-group">
         {% for post in posts %}
+        <a href="{% url 'post-detail' post.pk %}">
             <div class="forum">
-                <a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'post-detail' post.pk %}">
                     {{ post.title }}
-                </a>
-                <span class="badge rounded-pill text-bg-info">
-                    {{ post.priority }}
-                 </span>
-                <span class="badge rounded-pill text-bg-info">
-                    {{ post.type }}
-                </span>
             </div>
-
+        </a>
         {% empty %}
-        <p class="list-group-item">No posts found</p>
+        <p class="list-group-item">Постов не найдено</p>
     </div>  
         {% endfor %}
         <div class="pagination">

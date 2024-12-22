@@ -1,0 +1,54 @@
+.voting-container {
+    background-color: #1d2525;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 6px;
+    width: 95%;
+    height: auto;
+    font-size: 20px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.voting-container h5 {
+    color: #76b92a;
+    margin-bottom: 10px;
+}
+
+.voting-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #d3d3d3;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-success {
+    background-color: #46bb48;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #3aa93d;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}

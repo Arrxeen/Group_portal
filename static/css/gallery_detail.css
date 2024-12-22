@@ -1,4 +1,5 @@
 .images{
+    border-radius: 10px;
     margin: 15px;
     width: 900px;
     height: auto;
@@ -8,9 +9,9 @@
   }
   
 .gallery_b {
-    background-color: rgb(255, 255, 255);
-    color: #000000;
-    border: 2px solid #007608;
+    margin: 10px 10px;
+    background-color: #87d22f;
+    color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -18,7 +19,7 @@
     border-radius: 5px;
   }
 
-  .gallery_b:hover {
-    background-color: #00763d;
+.gallery_b:hover {
+    background-color: #76b92a;
     color: white;
-    }
+}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from auth_sys.models import CustomUser
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import Grade, Student, Teacher
 from .forms import GradeForm
 
@@ -12,7 +12,6 @@ class StudentListView(ListView):
     def get_queryset(self):
         students = CustomUser.objects.filter(role__name='Student')
         return students
-
 
 class StudentDetailView(DetailView):
     model = CustomUser
@@ -33,8 +32,8 @@ class StudentDetailView(DetailView):
 
         if grade_form.is_valid():
             grade = grade_form.save(commit=False)
-            grade.teacher = Teacher.objects.get(user = request.user)  # Прив'язуємо вчителя
-            grade.student = Student.objects.get(user = student)  # Прив'язуємо студента
+            grade.teacher = Teacher.objects.get(user=request.user)  # Прив'язуємо вчителя
+            grade.student = Student.objects.get(user=student)  # Прив'язуємо студента
             grade.save()
             return redirect('student-detail', pk=student.id)
 
@@ -43,3 +42,17 @@ class StudentDetailView(DetailView):
             'grade_form': grade_form,
         })
 
+class GradeEditView(UpdateView):
+    model = Grade
+    form_class = GradeForm
+    template_name = 'grade_system/grade_form.html'
+
+    def get_success_url(self):
+        return reverse('student-detail', kwargs={'pk': self.object.student.user.pk})
+
+class GradeDeleteView(DeleteView):
+    model = Grade
+    template_name = 'grade_system/grade_confirm_delete.html'
+
+    def get_success_url(self):
+        return reverse('student-detail', kwargs={'pk': self.object.student.user.pk})

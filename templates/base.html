@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -21,19 +20,23 @@
     
     <div class="offcanvas-menu" id="offcanvasMenu" onclick="navbarDisable()">
         <a href="{% url 'about' %}">О нас</a>
-        <a href="{% url 'useful-links' %}">Корисні Посилання</a>
+        <a href="{% url 'useful-links' %}">Полезные ссылки</a>
         <a href="{% url 'student-list' %}">Школа</a>
         <a href="{% url 'categories' %}">Форум</a>
-        <a href="{% url 'news-list' %}">Новини</a>
+        <a href="{% url 'news-list' %}">Новости</a>
         <a href="{% url 'gallery-list' %}">Галерея</a>
+        <a href="{% url 'portfolio:all_portfolios' %}">Портфолио</a>
+        <a href="{% url 'portfolio:my_portfolios' %}">Мое портфолио</a>
+        <a href="{% url 'voting:list' %}">Голосование</a>
+        <a href="{% url 'survey_list' %}">Опросы</a>
         {% if user.is_authenticated %}
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Вийти</button>
+                <button type="submit">Выйти</button>
             </form>
         {% else %}
-            <a href="{% url 'login' %}">Логiн</a>
-            <a href="{% url 'register' %}">Pеєстрація</a>
+            <a href="{% url 'login' %}">Логин</a>
+            <a href="{% url 'register' %}">Регистрация</a>
         {% endif %}
     </div>
     <div class="content">

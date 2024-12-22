@@ -1,0 +1,67 @@
+.grade-form {
+    margin: 20px 0;
+}
+
+.student-details {
+    max-width: 800px;
+    margin: 10px;
+    color: white;
+}
+
+.student-details h1, .student-details h2 {
+    color: #76b92a;
+    margin-bottom: 20px;
+}
+
+.grades-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.grades-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1d2525;
+    margin: 5px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    font-size: 20px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.grades-list li:hover {
+    background-color: #2c3838;
+}
+
+.grades-list .btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.grades-list .btn-edit {
+    background-color: #46bb48;
+    color: white;
+    transform: background-color 0.3s;
+}
+
+.grades-list .btn-edit:hover {
+    background-color: #3aa93d;
+}
+
+.grades-list .btn-delete {
+    background-color: #dc3545;
+    color: white;
+    transform: background-color 0.3s;
+}
+
+.grades-list .btn-delete:hover {
+    background-color: #c82333;
+}

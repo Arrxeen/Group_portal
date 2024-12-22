@@ -11,7 +11,7 @@ class QuestionInline(admin.TabularInline):
 
 @admin.register(Survey)
 class SurveyAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at', 'end_date', 'is_active']
+    list_display = ['title', 'created_at', 'is_active']
     inlines = [QuestionInline]
 
 @admin.register(Question)

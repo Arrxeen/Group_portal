@@ -3,15 +3,26 @@
 {% load static %}
 
 {% block title %}
-    <title>Collaborify: Категорії постів</title>
+    <title>Collaborify: Категории постов</title>
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/forum.css' %}">
+<h1>Категории</h1>
+<a href="{% url 'category-create'%}" class="btn btn-success mb-4">Создать Категорию</a>
+<div class="category-list">
     {% for category in categories %}
-        <a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'post-list' category.pk %}">
-            {{ category.name }}
-        </a>
+        <div class="category-link">
+            <a href="{% url 'post-list' category.pk %}" class="category-link-content">
+                {{ category.name }}
+            </a>
+            <div class="category-actions">
+                <a href="{% url 'category-update' category.id%}" class="btn btn-success">Изменить Категорию</a>
+                <a href="{% url 'category-delete' category.id%}" class="btn btn-delete">Удалить Категорию</a>
+            </div>
+        </div>
     {% empty %}
-        <p>No categories found</p>
+        <p>Нет категорий</p>
     {% endfor %}
+</div>
 {% endblock %}

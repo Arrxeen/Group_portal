@@ -1,0 +1,19 @@
+.useful-link-container {
+    background-color: #1d2525; /* Dark background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #d3d3d3; /* Light text color */
+    padding: 20px;
+}
+
+.useful-link-container h5 {
+    color: #76b92a; /* Green color for titles */
+}
+
+.useful-link-container p {
+    font-size: 14px;
+    color: #d3d3d3; /* Light text color */
+}
+.editing {
+    margin-top: 10px;
+}

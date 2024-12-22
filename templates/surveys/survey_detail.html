@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 <div class="container">
     <h1>{{ survey.title }}</h1>
     <p>{{ survey.description }}</p>
@@ -10,7 +13,7 @@
         {% for question in survey.questions.all %}
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">{{ question.text }}</h5>
+                    <h3 class="card-title">{{ question.text }}</h5>
                     {% if question.required %}
                         <span class="text-danger">*</span>
                     {% endif %}

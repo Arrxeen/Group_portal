@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Удалить новость</title>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<div class="container mt-4">
+    <form method="post">
+        {% csrf_token %}
+        <p>Вы уверены, что хотите удалить <strong>{{ news_item.title }}</strong>?</p>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+    </form>
+</div>
+{% endblock %}

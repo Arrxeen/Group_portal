@@ -1,26 +1,22 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %}
-  <title>Collaborify: Додавання ивентов</title>
+  <title>Collaborify: Добавление событий</title>
 {% endblock %}
 
 {% block content %}
+<div class="container mt-4">
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <h2>{% if object.pk %}Редактировать событие{% else %}Создать событие{% endif %}</h2>
     <form method="post">
         {% csrf_token %}
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" required>
-        <br>
-        <label for="description">Description:</label>
-        <textarea name="description" id="description"></textarea>
-        <br>
-        <label for="date">Date:</label>
-        <input type="date" name="date" id="date" required>
-        <br>
-        <button type="submit">Add Event</button>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">{% if object.pk %}Сохранить{% else %}Создать{% endif %}</button>
     </form>
-    {% if error %}
-    <p style="color: red;">{{ error }}</p>
+    {% if form.errors %}
+    <p style="color: red;">{{ form.errors }}</p>
     {% endif %}
+</div>
 {% endblock %}
