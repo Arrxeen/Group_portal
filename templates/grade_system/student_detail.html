@@ -1,27 +1,35 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
-    <title>Collaborify: Деталі студента</title>
+    <title>Collaborify: Детали студента</title>
 {% endblock %}
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
-    <h1>Деталі студента: {{ student.first_name }}</h1>
+    <link rel="stylesheet" href="{% static 'css/student_details.css' %}">
+    <div class="student-details">
+        <h1>Детали студента: {{ student.first_name }}</h1>
 
-    <h2>Додати оцінку:</h2>
+        <h2>Добавить оценку:</h2>
 
-    <form method="POST" action="{% url 'student-detail' student.pk  %}">
-        {% csrf_token %}
-        <p>{{ grade_form.as_p }}</p>
-        <button type="submit">Зберегти</button>
-    </form>
+        <form method="POST" action="{% url 'student-detail' student.pk  %}" class="grade-form">
+            {% csrf_token %}
+            {{ grade_form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
 
-    <h2>Існуючі оцінки:</h2>
-    <ul>
-        {% for grade in student.student_profile.grades.all %}
-            <li>{{ grade.grade }} (Вчитель: {{ grade.teacher.user.first_name }}) Поставленя: {{ grade.created_at }}</li>
-        {% endfor %}
-    </ul>
+        <h2>Існуючі оцінки:</h2>
+        <ul class="grades-list">
+            {% for grade in student.student_profile.grades.all %}
+                <li>
+                    {{ grade.grade }} (Учитель: {{ grade.teacher.user.first_name }}) Поставленя: {{ grade.created_at }}
+                    <div>
+                        <a href="{% url 'grade-edit' grade.pk %}" class="btn btn-edit">Редактировать</a>
+                        <a href="{% url 'grade-delete' grade.pk %}" class="btn btn-delete">Удалить</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

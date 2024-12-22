@@ -13,15 +13,20 @@
   }
   
 
-.gallery_b {
-  background-color: rgb(255, 255, 255);
-  color: #000000;
-  border: 2px solid #007608;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
+  .gallery_b {
+    margin: 10px 10px;
+    background-color: #87d22f;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+.gallery_b:hover {
+    background-color: #76b92a;
+    color: white;
 }
 
 .stycli{
@@ -30,13 +35,8 @@
     padding: 10px 10px 10px 10px;
 }
 
-.gallery_b:hover {
-  background-color: #00763d;
-  color: white;
-  }
-
 .gallery_b2{
-    color: black;
+    color: red;
     text-decoration: none;
 }
 
@@ -46,8 +46,8 @@
 
   
 .pagination a {
-    color: black;
-    padding: 8px 16px;
+    color: #ccc;
+    padding: 10px 16px;
     text-decoration: none;
     border-radius: 5px;
     border: 2px solid gray ;
@@ -57,5 +57,6 @@
     background-color: #4CAF50;
     color: white;
 }
+
 
 .pagination a:hover:not(.active) {background-color: #ddd;}

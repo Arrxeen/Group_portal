@@ -48,7 +48,7 @@ class PostDetailViews(DetailView):
 class PostListViews(ListView):
     model = Post
     context_object_name = 'posts'
-    paginate_by = 30
+    paginate_by = 11
     
     def get_queryset(self):
         category_id = self.kwargs.get('category_id')
@@ -61,6 +61,7 @@ class PostListViews(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form"] = PostFilterForm(self.request.GET)
+        context["category"] = Category.objects.get(id=self.kwargs.get('category_id'))
         return context
 
 
@@ -120,7 +121,7 @@ class CategoryListView(ListView):
 class CategoryCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Category
     form_class = CategoryForm
-    permission_required = 'forum.can_post_news'
+    permission_required = 'forum.category_create'
     success_url = reverse_lazy('categories')
 
     def form_valid(self, form):
@@ -129,7 +130,7 @@ class CategoryCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView
 class CategoryUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Category
     form_class = CategoryForm
-    permission_required = 'forum.can_post_news'
+    permission_required = 'forum.category_create'
 
     def get_success_url(self):
         return reverse_lazy('categories')
@@ -137,5 +138,5 @@ class CategoryUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView
 class CategoryDeleteView(LoginRequiredMixin,PermissionRequiredMixin, DeleteView):
     model = Category
     success_url = reverse_lazy('categories')
-    permission_required = 'forum.can_post_news'
+    permission_required = 'forum.category_create'
     template_name = "forum/category_delete.html"

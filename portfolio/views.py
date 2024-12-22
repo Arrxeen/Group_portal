@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from .models import Portfolio
 from .forms import PortfolioForm
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
 
 
 def create_portfolio(request):
@@ -36,16 +38,17 @@ def edit_portfolio(request, pk):
 
     return render(request, 'portfolio/portfolio_form.html', {'form': form})
 
-def delete_portfolio(request, pk):
-    if not request.user.is_authenticated: 
-        return redirect('login')
+class PortfolioDeleteView(DeleteView):
+    model = Portfolio
+    template_name = 'portfolio/portfolio_confirm_delete.html'
+    success_url = reverse_lazy('portfolio:my_portfolios')
 
-    portfolio = get_object_or_404(Portfolio, pk=pk, user=request.user)
-    if request.method == 'POST':
-        portfolio.delete()
-        return redirect('portfolio:my_portfolios')
+    def get_queryset(self):
+        return Portfolio.objects.filter(user=self.request.user)
 
-    return render(request, 'portfolio/portfolio_confirm_delete.html', {'portfolio': portfolio})
+def portfolio_detail(request, pk):
+    portfolio = get_object_or_404(Portfolio, pk=pk)
+    return render(request, 'portfolio/portfolio_detail.html', {'portfolio': portfolio})
 
 
 def my_portfolios(request):

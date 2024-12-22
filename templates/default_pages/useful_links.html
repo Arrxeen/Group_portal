@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block title %}
-  <title>Collaborify: Корисні Посилання</title>
+    <title>Полезные ссылки</title>
 {% endblock %}
 
 {% block content %}
-
-  <h1>Корисні Посилання</h1>
-  <a href="https://www.python.org/">Python</a>
-  <a href="https://docs.djangoproject.com/en/5.1/" style="margin-top: 7px; display: block;">Django documentation</a>
-  <a href="https://github.com/Coder2287569013/Group_portal_collaborify" style="margin-top: 7px; display: block;">Our Github</a>
-  <a href="https://stackoverflow.com/" style="margin-top: 7px; display: block;">Stack Overflow</a>
-
+<link rel="stylesheet" href="{% static 'css/useful_links.css' %}">
+<div class="container mt-4">
+    <h1>Полезные ссылки</h1>
+    <a href="{% url 'useful-link-add' %}" class="btn btn-success mb-4">Добавить ссылку</a>
+    <div class="row">
+        {% for link in links %}
+            <div class="col-md-4 mb-4">
+                <div class="useful-link-container p-3">
+                    <h3>{{ link.title }}</h3>
+                    <p>{{ link.description }}</p>
+                    <a href="{{ link.url }}" target="_blank" class="btn btn-success">Перейти по ссылке</a>
+                    <div class="editing d-flex justify-content-between">
+                        <a href="{% url 'useful-link-edit' link.pk %}" class="btn btn-success">Редактировать</a>
+                        <a href="{% url 'useful-link-delete' link.pk %}" class="btn btn-delete">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

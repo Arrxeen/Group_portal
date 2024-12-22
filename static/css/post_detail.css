@@ -1,0 +1,203 @@
+.bec {
+    background-color: transparent;
+    padding: 0;
+    margin: 15px 15px 15px 15px; /* Adjusted margin to be slightly larger */
+    border-radius: 0;
+    max-width: 95%;
+    box-shadow: none;
+}
+
+.bec h4 {
+    color: #76b92a;
+    margin-bottom: 15px;
+    font-size: 2em; /* Increased font size for the post title */
+}
+
+.bec p {
+    font-size: 18px; /* Increased font size for the post text */
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #d3d3d3;
+}
+
+.bec a {
+    color: #87d22f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px; /* Decreased font size for the author and date */
+}
+
+.bec a:hover {
+    text-decoration: underline;
+}
+
+.bec img, .bec video {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 2px solid #76b92a;
+}
+
+.bec form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.bec .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #76b92a;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.bec .btn:hover {
+    background-color: #007f3d;
+}
+
+.bec .btn-danger {
+    background-color: #dc3545;
+}
+
+.bec .btn-danger:hover {
+    background-color: #c82333;
+}
+
+.bec .btn-outline-success {
+    background-color: transparent;
+    border: 2px solid #76b92a;
+    color: #76b92a;
+}
+
+.bec .btn-outline-success:hover {
+    background-color: #76b92a;
+    color: white;
+}
+
+.bec .btn-outline-danger {
+    background-color: transparent;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+}
+
+.bec .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.test1 {
+    padding: 0;
+    margin: 15px 15px 15px 15px; /* Adjusted margin to be slightly larger */
+    border-radius: 0;
+    max-width: 95%;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.test1 h3 {
+    color: #76b92a;
+    margin-bottom: 20px;
+}
+
+.test1 form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+}
+
+.test1 form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #76b92a;
+    background-color: #1a1f1f;
+    color: #d3d3d3;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.test1 form button {
+    background-color: #76b92a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.test1 form button:hover {
+    background-color: #007f3d;
+}
+
+.test1 hr {
+    border: 1px solid #76b92a;
+}
+
+.test1 h6 {
+    color: #87d22f;
+    margin-bottom: 5px;
+    font-size: 1.2em; /* Increased font size for the comment author */
+}
+
+.test1 p {
+    font-size: 16px; /* Increased font size for the comment text */
+    line-height: 1.5;
+    margin-bottom: 5px;
+    color: #d3d3d3;
+}
+
+.test1 img, .test1 video {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 2px solid #76b92a;
+}
+
+.test1 .comment-box {
+    padding: 10px 0;
+    border-radius: 8px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    box-shadow: none;
+    border: none;
+}
+
+.test1 .comment-box img, .test1 .comment-box video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.test1 .comment-box h6 {
+    font-size: 1.2em; /* Increased font size for the comment author */
+    margin-bottom: 5px;
+    color: #87d22f;
+}
+
+.test1 .comment-box p {
+    color: #d3d3d3;
+    margin-bottom: 8px;
+    font-size: 16px; /* Increased font size for the comment text */
+}
+
+.test1 .comment-box time {
+    font-size: 0.8em;
+    color: #76b92a;
+}
+
+.bec p, .test1 p {
+    margin-bottom: 5px;
+}
+
+.bec a, .test1 a {
+    margin: 5px 0;
+}

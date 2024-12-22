@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block title %}
-    <title>Collaborify: Головна</title>
+    <title>Collaborify: Главная</title>
 {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
 <link rel="stylesheet" href="{% static 'css/modal.css' %}">
-    <h1>Новини</h1>
+    <h1>Новости</h1>
     <div class="layout-container">
         <div class="news-box">
             {% for article in news %}
@@ -20,17 +20,17 @@
             {% endfor %}
         </div>
         <div class="upcoming">
-            <h3>Найближчі дні народження:</h3>
+            <h3>Ближайшие дни рождения:</h3>
             {% for user in upcoming_birthdays %}
                 {{ user.get_birth_month_display }} {{ user.birth_day }} - {{ user.first_name }} {{ user.last_name }}
                 <br>
             {% empty %}
-                No upcoming birthdays in the next 30 days!
+                Нет ближайших дней рождения!
             {% endfor %}
         </div>
     </div>
     <div class="timeline-container">
-        <div class="timeline", id = "timeline">
+        <div class="timeline" id="timeline">
             {% for item in timeline %}
             <div class="day-marker">
                 <div class="date">{{ item.day }}</div>
@@ -39,10 +39,10 @@
                 <ul class="events">
                     {% if item.events %}
                         {% for event in item.events %}
-                        <li>{{ event.title }}</li>
+                        <li><a href="{% url 'event-detail' event.pk %}">{{ event.title }}</a></li>
                         {% endfor %}
                     {% else %}
-                        <li>Немає подій</li>
+                        <li>Нет событий</li>
                     {% endif %}
                 </ul>
             </div>
@@ -61,19 +61,19 @@
 
 {% if notification %}
     <dialog id="modal" style="padding: 0">
-        <div id="modal-box" style="padding: 1rem">
-            <button id="close-modal-btn">&#x2717;</button>
-            <div>
-                <p>{{ notification.title }}</p> 
+        <div id="modal-box">
+            <div class="modal-header">
+                <h2 class="title-notif">{{ notification.title }}</h2>
+                <button id="close-modal-btn">&#x2717;</button>
+            </div>
+            <div style="padding: 20px;">
                 <p>{{ notification.message }}</p>
             </div>
         </div>
     </dialog>
-{% else %}
-<p>has no notifications</p>
 {% endif %}
 
-<script>// устанавливаем триггер для модального окна (название можно изменить)
+<script>
 document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('modal');
         const closeModalBtn = document.getElementById('close-modal-btn');

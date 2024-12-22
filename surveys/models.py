@@ -6,12 +6,16 @@ class Survey(models.Model):
     title = models.CharField('Название', max_length=200)
     description = models.TextField('Описание')
     created_at = models.DateTimeField('Дата создания', auto_now_add=True)
-    end_date = models.DateTimeField('Дата окончания')
     is_active = models.BooleanField('Активен', default=True)
 
     class Meta:
         verbose_name = 'Опрос'
         verbose_name_plural = 'Опросы'
+        permissions = [
+            ('can_create_survey', 'Can create survey'),
+            ('can_view_survey_results', 'Can view survey results'),
+            ('can_delete_survey', 'Can delete survey'),
+        ]
 
     def __str__(self):
         return self.title

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy, reverse
 from .models import Voting, Choice, Vote
 from .forms import VotingForm, ChoiceFormSet
 
@@ -56,3 +58,8 @@ def voting_detail(request, pk):
         'voting': voting,
         'user_vote': user_vote
     })
+
+class VotingDeleteView(DeleteView):
+    model = Voting
+    template_name = 'voting/voting_confirm_delete.html'
+    success_url = reverse_lazy('voting:list')

@@ -86,3 +86,33 @@ body {
         font-size: 13px;
     }
 }
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.btn-success {
+    background-color: #46bb48;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #3aa93d;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}

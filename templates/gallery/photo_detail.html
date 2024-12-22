@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>Collaborify: Новини</title>
+<title>Collaborify: Изображение</title>
 {% endblock %}
 
 {% load custom_tags %}
@@ -20,7 +20,7 @@
         <source src="{{ photo.image.url }}" type="video/mp4" >
     </video>
     {% else %}
-    <a href="{{ photo.image.url }}">Завантажити</a>
+    <a href="{{ photo.image.url }}">Скачать</a>
     {% endif %}
     {% endif %}
 </div>

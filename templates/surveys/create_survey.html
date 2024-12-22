@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
 <div class="container">
     <h1>Создать новый опрос</h1>
     <form method="post">
@@ -21,16 +24,6 @@
             {% if form.description.errors %}
                 <div class="alert alert-danger">
                     {{ form.description.errors }}
-                </div>
-            {% endif %}
-        </div>
-        
-        <div class="mb-3">
-            {{ form.end_date.label_tag }}
-            {{ form.end_date }}
-            {% if form.end_date.errors %}
-                <div class="alert alert-danger">
-                    {{ form.end_date.errors }}
                 </div>
             {% endif %}
         </div>

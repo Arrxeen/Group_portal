@@ -24,7 +24,7 @@
 
 .news-box, .news-box1 {
     width: 60%;
-    margin: 10px 10px;
+    margin: 20px 10px;
     background-color: #1d2525;
     border-radius: 10px;
     padding: 10px;
@@ -157,16 +157,11 @@ h1 {
     width: 100%; /* Ensure each item takes full width */
     white-space: normal; /* Allow text wrapping */
 }
-/* .day-marker .events {
-    margin-right: 20px;
-    padding-left: 0;
-    list-style-type: none;
-} */
 
-/* .day-marker .events li {
-    text-align: center;
-    margin: 5px 0;
-} */
+.day-marker .events li a {
+    text-decoration: none; /* Remove text decoration from event links */
+    color: inherit; /* Inherit color from parent */
+}
 
 @media (max-width: 800px) {
     .upcoming {
@@ -175,4 +170,22 @@ h1 {
         margin: 0 auto 20px; 
         top: 0;
     }
+}
+
+.pagination a {
+    top: 20px;
+    color: #ccc;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
 }

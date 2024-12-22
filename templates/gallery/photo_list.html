@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>Collaborify: Новини</title>
+<title>Collaborify: Список изображений</title>
 {% endblock %}
 
 {% load custom_tags %}
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
 <div>
     {% if user.is_authenticated %}
-    <a class="gallery_b" href="{% url 'gallery-creat' %}">Додати</a>
+    <a class="gallery_b" href="{% url 'gallery-creat' %}">Добавить</a>
     {% endif %}
     <div class="stycli">
         <div class="pagination">
@@ -42,16 +42,16 @@
                         <source src="{{ photo.image.url }}" type="video/mp4" >
                     </video>
                     {% else %}
-                    <a href="{{ photo.image.url }}">Завантажити</a>
+                    <a href="{{ photo.image.url }}">Скачать</a>
                     {% endif %}
                     {% endif %}
                 </span>
-                <a href="{% url 'gallary-delete' photo.id %}" class="gallery_b2" style="float: right;">Видалення</a>
                 <a style="float: left;">{{ photo.creater }}</a>
+                <a href="{% url 'gallary-delete' photo.id %}" class="gallery_b2" style="float: right;">Удалить</a>
             </div>
         </a>
         {% empty %}
-        <div class="gallery">No photo found</div>
+        <div class="gallery">Нет фото</div>
         {% endfor %}
 </div>  
     {% endblock %}

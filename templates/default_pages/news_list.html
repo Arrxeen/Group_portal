@@ -2,21 +2,40 @@
 {% load static %}
 
 {% block title %}
-  <title>Collaborify: Новини</title>
+  <title>Collaborify: Новости</title>
 {% endblock %}
 
 {% block content %}
   <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
-  <h1>Список новин</h1>
+  <h1>Список новостей</h1>
   <div class="layout-container">
     <div class="news-box1">
         {% for article in news %}
             <a class="news-item" href="{% url 'news-detail' pk=article.id %}">
                 <h2>{{ article.title }}</h2>
-                <p>{{ article.content }}</p>
+                <p>{{ article.content|truncatewords:13 }}</p>
                 <p>{{ article.created_at }}, by {{ article.author }}</p>
             </a>
+            <div class="news-actions">
+              <a href="{% url 'news-edit' article.id %}" class="btn btn-success">Редактировать</a>
+              <a href="{% url 'news-delete' article.id %}" class="btn btn-delete">Удалить</a>
+          </div>
         {% endfor %}
     </div>
+  </div>
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+    {% endif %}
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+        <a href="?page={{ num }}">{{ num }}</a>
+    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a href="?page={{ num }}">{{ num }}</a>
+    {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+    {% endif %}
   </div>
 {% endblock %}

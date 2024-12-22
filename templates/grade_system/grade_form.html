@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Редагувати оцінку</title>
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зберегти</button>
+        </form>
+    </div>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    <title>Collaborify: Pеєстрація</title>
+    <title>Collaborify: Регистрация</title>
 {% endblock %}
 
 {% block content %}
@@ -10,6 +10,6 @@
     <form method="post" action="{% url 'register' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Зареєструватися</button>
+        <button type="submit">Зарегистрироваться</button>
     </form>
 {% endblock %}

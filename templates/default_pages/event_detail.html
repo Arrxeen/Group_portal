@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ event.title }}</h2>
+    <p>{{ event.description }}</p>
+    <p><strong>Date:</strong> {{ event.date }}</p>
+
+    <a href="{% url 'event-edit' event.pk %}" class="btn btn-success">Редактировать</a>
+    <a href="{% url 'event-delete' event.pk %}" class="btn btn-delete">Удалить</a>
+</div>
+{% endblock %}
