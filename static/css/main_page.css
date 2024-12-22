@@ -153,6 +153,7 @@ h1 {
 
 .day-marker .events li {
     margin: 5px 0;
+    font-size: small;
     text-align: center;
     width: 100%; /* Ensure each item takes full width */
     white-space: normal; /* Allow text wrapping */
