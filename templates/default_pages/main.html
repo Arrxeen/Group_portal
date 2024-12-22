@@ -75,15 +75,24 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
+    const modal = document.getElementById('modal');
+    const showModalBtn = document.getElementById('show-modal-btn');
+    const closeModalBtn = document.getElementById('close-modal-btn');
 
-        // Show the modal when the site is loaded
-        modal.showModal();
+    // Show the modal when the site is loaded
+    modal.showModal();
 
-        closeModalBtn.addEventListener('click', () => {
-            modal.close();
-        });
+    // Close the modal when clicking on the close button    
+    closeModalBtn.addEventListener('click', () => {
+        modal.close();
     });
+
+    // Close the modal when clicking on the backdrop
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.close();
+        }
+    });
+});
 </script>
 {% endblock %}
